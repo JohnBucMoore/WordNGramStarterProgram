@@ -49,6 +49,18 @@ public class MarkovRunner {
             } 
         } 
         System.out.println("\n----------------------------------");
-    } 
+    }
 
+    public void testMarkovWordOne() {
+        MarkovWordOne mwo = new MarkovWordOne();
+        FileResource fr = new FileResource("data/confucius.txt");
+        String text = fr.asString();
+        //String text = "this is just a test yes this is a simple test";
+        runModel(mwo, text, 120, 175);
+    }
+
+    public static void main(String[] args) {
+        MarkovRunner mr = new MarkovRunner();
+        mr.testMarkovWordOne();
+    }
 }

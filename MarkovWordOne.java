@@ -56,6 +56,17 @@ public class MarkovWordOne implements IMarkovModel {
 
 	private ArrayList<String> getFollows(String key) {
 	    ArrayList<String> follows = new ArrayList<String>();
+	    int currIndex = 0;
+	    while (currIndex != -1) {
+	    	int keyIndex = indexOf(myText, key, currIndex);
+	    	int followingIndex = keyIndex + 1;
+	    	if (keyIndex != -1 && (followingIndex < myText.length)) {
+				follows.add(myText[followingIndex]);
+				currIndex = followingIndex;
+			} else {
+				break;
+			}
+		}
 	    return follows;
     }
 
