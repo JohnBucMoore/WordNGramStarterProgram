@@ -59,4 +59,19 @@ public class MarkovWordOne implements IMarkovModel {
 	    return follows;
     }
 
+    public void testIndexOf() {
+    	setTraining("this is just a test yes this is a simple test");
+    	System.out.println(Arrays.asList(myText).toString());
+    	System.out.println(indexOf(myText, "this", 0));
+		System.out.println(indexOf(myText, "this", 3));
+		System.out.println(indexOf(myText, "frog", 0));
+		System.out.println(indexOf(myText, "frog", 5));
+		System.out.println(indexOf(myText, "simple", 2));
+		System.out.println(indexOf(myText, "test", 5));
+	}
+
+	public static void main(String[] args) {
+		MarkovWordOne mwo = new MarkovWordOne();
+		mwo.testIndexOf();
+	}
 }
