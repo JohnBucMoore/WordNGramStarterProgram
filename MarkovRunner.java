@@ -34,7 +34,15 @@ public class MarkovRunner {
         st = st.replace('\n', ' '); 
         MarkovWordOne markovWord = new MarkovWordOne(); 
         runModel(markovWord, st, 200); 
-    } 
+    }
+
+    public void runMarkovTwo() {
+        FileResource fr = new FileResource("data/confucius.txt");
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        MarkovWordTwo m = new MarkovWordTwo();
+        runModel(m, st, 200, 549);
+    }
 
     private void printOut(String s){
         String[] words = s.split("\\s+");
@@ -59,8 +67,14 @@ public class MarkovRunner {
         runModel(mwo, text, 120, 175);
     }
 
+    public void testGetFollows() {
+        MarkovWordTwo mwt = new MarkovWordTwo();
+        String text = "this is just a test yes this is a simple test";
+        runModel(mwt, text, 120, 175);
+    }
+
     public static void main(String[] args) {
         MarkovRunner mr = new MarkovRunner();
-        mr.testMarkovWordOne();
+        mr.runMarkovTwo();
     }
 }
