@@ -44,7 +44,16 @@ public class MarkovWordOne implements IMarkovModel {
 		
 		return sb.toString().trim();
 	}
-	
+
+	private int indexOf(String[] words, String target, int start) {
+    	for (int i = start; i < words.length; i++) {
+    		if (words[i].equals(target)) {
+    			return i;
+			}
+		}
+    	return -1;
+	}
+
 	private ArrayList<String> getFollows(String key) {
 	    ArrayList<String> follows = new ArrayList<String>();
 	    return follows;
